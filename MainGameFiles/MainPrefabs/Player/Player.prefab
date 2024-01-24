@@ -5054,6 +5054,7 @@ GameObject:
   - component: {fileID: 5936118424071615196}
   - component: {fileID: 5936118424071615199}
   - component: {fileID: 4973091932944301264}
+  - component: {fileID: 1327048253854065242}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -5130,6 +5131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   road: {fileID: 919453400112994254, guid: f69a738fd8e7067499ea176608cec107, type: 3}
+  numberOfRoadToClone: 4
 --- !u!143 &5936118424071615199
 CharacterController:
   m_ObjectHideFlags: 0
@@ -5161,6 +5163,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.3040438, z: 1}
   m_Center: {x: 0, y: 0.65202224, z: 0}
+--- !u!114 &1327048253854065242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5461935837643349708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd766ca4b9fcac1438b70e145ae8f5a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swipeSpeed: 2.5
 --- !u!1 &5467719257578771218
 GameObject:
   m_ObjectHideFlags: 0
