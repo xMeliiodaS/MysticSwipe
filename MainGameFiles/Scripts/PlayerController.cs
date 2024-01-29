@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float swipeSpeed = 5f;
+    [SerializeField] private float swipeSpeed = 3f;
+    [SerializeField] private GameObject playerCamera;
     private Rigidbody rb;
     private Vector2 touchStartPos;
     private bool isSwiping = false;
@@ -11,16 +12,25 @@ public class PlayerController : MonoBehaviour
     // Define the lane positions
     private readonly Vector3[] lanePositions = { new(-2.5f, 0, 0), new(-1.25f, 0, 0), new(1.25f, 0, 0), new(2.5f, 0, 0) };
 
+    private float cameraPy;
+    private float cameraPz;
+
 
     void Start()
     {
-        // Get the Rigidbody component
         rb = GetComponent<Rigidbody>();
+
+        // Player always start at lane number 1
         currentLane = 1;
+
+        // Save the camera position
+        cameraPy = playerCamera.transform.position.y;
+        cameraPz = playerCamera.transform.position.z;
     }
 
     void Update()
     {
+        Debug.Log(currentLane);
         // Check for user input
         if (Input.touchCount > 0)
         {
@@ -65,32 +75,40 @@ public class PlayerController : MonoBehaviour
 
     void SwitchLane(float direction)
     {
-        Debug.Log("Before " + currentLane);
-        if (currentLane == 0 && direction < 0)
+        //Debug.Log("Before " + currentLane);
+        if (currentLane == 0 && direction < 0 || currentLane == lanePositions.Length - 1 && direction > 0)
         {
-            Debug.Log("Already at the leftmost lane.");
-            return; // Do not allow further left swiping
+            Debug.Log("Already at the leftmost/rightmost lane.");
+            return; // Don't allow further left swiping
         }
-
-        // Check if the player is at the rightmost lane and swiping right
-        if (currentLane == lanePositions.Length - 1 && direction > 0)
-        {
-            Debug.Log("Already at the rightmost lane.");
-            return; // Do not allow further right swiping
-        }
-
 
         // Update the current lane based on the swipe direction
-        currentLane = Mathf.Clamp(currentLane + (int)direction, 0, lanePositions.Length - 1);
-        Debug.Log("After " + currentLane);
+
+        // Swiped to the right
+        if(direction < 0)
+        {
+            currentLane++;
+        }
+        else if (direction > 0)
+        {
+            currentLane--;
+        }
+
+        //currentLane = Mathf.Clamp(currentLane + (int)direction, 0, lanePositions.Length - 1);
+        //Debug.Log("After " + currentLane);
 
         // Move the player to the new lane position with constant Z position
-        Vector3 targetPosition = new Vector3(lanePositions[currentLane].x, lanePositions[currentLane].y, 0);
-        transform.position = Vector3.Lerp(transform.position, targetPosition, 0.5f);
+        Vector3 targetPosition = new (lanePositions[currentLane].x, 0, 0);
+        Vector3 cameraTargetPosition = new(lanePositions[currentLane].x, cameraPy, cameraPz);
+
+        transform.position = Vector3.Lerp(transform.position, targetPosition, Time.deltaTime * swipeSpeed);
+
+        playerCamera.transform.position = Vector3.Lerp(playerCamera.transform.position, cameraTargetPosition, Time.deltaTime * swipeSpeed);
+
         StopPlayer();
     }
 
-
+    
     void StopPlayer()
     {
         // Stop the player immediately by setting velocity to zero

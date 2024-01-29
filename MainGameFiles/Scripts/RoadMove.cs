@@ -6,7 +6,7 @@ public class RoadMove : MonoBehaviour
     [SerializeField] private float roadSpeed;
     private void Start()
     {
-        Application.targetFrameRate = 60;
+        Application.targetFrameRate = 30;
     }
 
     // Update is called once per frame

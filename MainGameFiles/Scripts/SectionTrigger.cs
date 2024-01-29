@@ -17,6 +17,7 @@ public class SectionTrigger : MonoBehaviour
             }
             else
             {
+                // The final road contains the boss and his mules.
             }
         }
     }
