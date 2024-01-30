@@ -30,4 +30,10 @@ public class RoadMove : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public float RoadSpeed
+    {
+        get { return roadSpeed; }
+        set { roadSpeed = value; }
+    }
 }

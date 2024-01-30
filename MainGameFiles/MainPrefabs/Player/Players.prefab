@@ -1590,8 +1590,6 @@ GameObject:
   - component: {fileID: 3459855828292426105}
   - component: {fileID: 3459855828292426106}
   - component: {fileID: 2837632844889495413}
-  - component: {fileID: 8072750234148129279}
-  - component: {fileID: 3876534126963330494}
   m_Layer: 0
   m_Name: Players
   m_TagString: Untagged
@@ -1607,7 +1605,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3003344042989385065}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.45}
+  m_LocalPosition: {x: -1.26, y: 0, z: -4.45}
   m_LocalScale: {x: 0.55, y: 0.55, z: 0.55}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1698,35 +1696,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.3040438, z: 1}
   m_Center: {x: 0, y: 0.65202224, z: 0}
---- !u!114 &8072750234148129279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3003344042989385065}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd766ca4b9fcac1438b70e145ae8f5a7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swipeSpeed: 2.5
-  playerCamera: {fileID: 0}
---- !u!114 &3876534126963330494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3003344042989385065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bd753b638b651441b750eff7b4a01b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  minDistance: 0.2
-  maxTime: 1
-  directionThreshold: 0.9
 --- !u!1 &3106380455079940621
 GameObject:
   m_ObjectHideFlags: 0
