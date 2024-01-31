@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMovements : MonoBehaviour
+public class MoveTowardsPlayer : MonoBehaviour
 {
     [SerializeField] private RoadMove roadMove;
     [SerializeField] private float enemySpeed;

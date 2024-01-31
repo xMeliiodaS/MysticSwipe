@@ -4,9 +4,11 @@ public class RoadMove : MonoBehaviour
 {
 
     [SerializeField] private float roadSpeed;
+    [SerializeField] private float destroyAfterSeconds;
     private void Start()
     {
         Application.targetFrameRate = 30;
+        Destroy(gameObject, destroyAfterSeconds);
     }
 
     // Update is called once per frame
@@ -14,6 +16,7 @@ public class RoadMove : MonoBehaviour
     {
         transform.position += new Vector3(0, 0, roadSpeed) * Time.deltaTime;
     }
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -25,9 +28,9 @@ public class RoadMove : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("DestroyRoad"))
+        if (other.CompareTag("SpawnRoad"))
         {
-            Destroy(gameObject);
+            Instantiate(gameObject, new Vector3(0, 0, 57.0876f), Quaternion.Euler(0, 0, 0));
         }
     }
 

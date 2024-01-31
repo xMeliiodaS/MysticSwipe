@@ -8,8 +8,10 @@ public class SwipeDetection : MonoBehaviour
     [SerializeField] private float maxTime = 1f;
     [SerializeField, Range(0, 1f)] private float directionThreshold = 0.9f;
     [SerializeField] private GameObject player;
-    //[SerializeField] private GameObject trail;
-    //private Coroutine coroutine;
+    [SerializeField] private Transform playerCamera;
+
+    [SerializeField] private float swipeCooldownDuration = 0.3f;
+    private bool isSwipeInCooldown = false;
 
     private InputManager inputManager;
 
@@ -39,12 +41,12 @@ public class SwipeDetection : MonoBehaviour
         inputManager.OnEndTouch -= SwipeEnd;
     }
 
+
     /// <summary>
     /// When the swipe starts, save the position of it and the time.
     /// </summary>
     /// <param name="position"></param>
     /// <param name="time"></param>
-
     private void SwipeStart(Vector2 position, float time)
     {
         startPos = position;
@@ -97,64 +99,56 @@ public class SwipeDetection : MonoBehaviour
         }
     }
 
+
+    /// <summary>
+    /// Moves the player character in the specified direction based on a swipe input.
+    /// </summary>
+    /// <param name="direction">Swipe direction vector.</param>
     private void SwipeDirection(Vector2 direction)
     {
-        // Vector3 playerPos = player.transform.position;
-        // // If swipping right
-        // if (Vector2.Dot(Vector2.right, direction) > directionThreshold)
-        // {
-        //     Debug.Log("Go right");
-        //     player.transform.position = Vector3.Lerp(playerPos, playerPos + new Vector3(1.25f, 0, 0), 2f);
-        // }
-        // // If swipping left
-        // else if (Vector2.Dot(Vector2.left, direction) > directionThreshold)
-        // {
-        //     Debug.Log("Go left");
-        //     player.transform.position = Vector3.Lerp(playerPos, playerPos + new Vector3(-1.25f, 0, 0), 2f);
-        // }
-        StartCoroutine(MovePlayerSmoothly(direction));
+        if (!isSwipeInCooldown)
+        {
+            StartCoroutine(SwipeCooldown(swipeCooldownDuration));
+
+            Vector3 playerPos = player.transform.position;
+            Vector3 targetPosition = new(0, 0, 0);
+
+            // If swiping right
+            if (Vector2.Dot(Vector2.right, direction) > directionThreshold)
+            {
+                Debug.Log("Go right");
+                targetPosition = playerPos + new Vector3(1.25f, 0, 0);
+            }
+            // If swiping left
+            else if (Vector2.Dot(Vector2.left, direction) > directionThreshold)
+            {
+                Debug.Log("Go left");
+                targetPosition = playerPos + new Vector3(-1.25f, 0, 0);
+            }
+
+            // Ensure the final position is exactly the target position
+            player.transform.position = targetPosition;
+            // TODO: Implement swipe effects, sound effects, and more.
+
+            // Swipe Effect..
+
+
+            // Sound Effect..
+
+
+        }
     }
 
-    private IEnumerator MovePlayerSmoothly(Vector2 direction)
+    private IEnumerator SwipeCooldown(float cooldownDuration)
     {
-        Vector3 playerPos = player.transform.position;
-        Vector3 targetPosition;
+        isSwipeInCooldown = true;
 
-        // If swiping right
-        if (Vector2.Dot(Vector2.right, direction) > directionThreshold)
-        {
-            Debug.Log("Go right");
-            targetPosition = playerPos + new Vector3(1.25f, 0, 0);
-        }
-        // If swiping left
-        else if (Vector2.Dot(Vector2.left, direction) > directionThreshold)
-        {
-            Debug.Log("Go left");
-            targetPosition = playerPos + new Vector3(-1.25f, 0, 0);
-        }
-        else
-        {
-            yield break; // No valid direction, exit coroutine
-        }
+        // Perform any visual effects or animations here
+        // For example, you can change the color of the player or show a cooldown UI element.
 
-        float startTime = Time.time;
-        float elapsedTime = 0f;
+        yield return new WaitForSeconds(cooldownDuration);
 
-        while (elapsedTime < 0.5f)
-        {
-            float t = elapsedTime / 0.5f;
-            player.transform.position = Vector3.Lerp(playerPos, targetPosition, t);
-
-            // Exit the loop if the player has reached the target position
-            if (t >= 1.0f)
-                break;
-
-            elapsedTime = Time.time - startTime;
-            yield return null;
-        }
-
-        // Ensure the final position is exactly the target position
-        player.transform.position = targetPosition;
+        // Reset the cooldown flag
+        isSwipeInCooldown = false;
     }
-
 }

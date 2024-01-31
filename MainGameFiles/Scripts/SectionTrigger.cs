@@ -6,19 +6,29 @@ public class SectionTrigger : MonoBehaviour
     [SerializeField] private int numberOfRoadToClone;
     private int currentRoad = 0;
 
-    private void OnTriggerEnter(Collider other)
+    private void Start()
     {
-        if (other.CompareTag("CloneRoad"))
+        //InvokeRepeating(nameof(InstantiateRoad), 1f, 5f);
+    }
+
+    private void InstantiateRoad()
+    {
+        if (currentRoad < numberOfRoadToClone)
         {
-            if (currentRoad < numberOfRoadToClone)
-            {
-                Instantiate(road, new Vector3(0, 0, 15.923f), Quaternion.Euler(0, 0, 0));
-                currentRoad++;
-            }
-            else
-            {
-                // The final road contains the boss and his mules.
-            }
+            Instantiate(road, new Vector3(0, 0, 93.95f), Quaternion.Euler(0, 0, 0));
+            currentRoad++;
         }
     }
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("SpawnRoad"))
+    //    {
+    //        if (currentRoad < numberOfRoadToClone)
+    //        {
+    //            Instantiate(road, new Vector3(0, 0, 93.95f), Quaternion.Euler(0, 0, 0));
+    //            currentRoad++;
+    //        }
+    //    }
+    //}
 }
