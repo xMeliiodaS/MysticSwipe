@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3931046150891281420}
   - component: {fileID: 6820907917169610613}
+  - component: {fileID: 7203167477677072721}
   m_Layer: 5
   m_Name: HealthBar
   m_TagString: Untagged
@@ -84,12 +85,25 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 1
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &7203167477677072721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538815262921689734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8a6b3cbb0b51d6499245f940683ca3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthSlider: {fileID: 0}
 --- !u!1 &1527191988166457830
 GameObject:
   m_ObjectHideFlags: 0
@@ -125,8 +139,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: -2.26, y: 0}
-  m_SizeDelta: {x: 14.52, y: 0}
+  m_AnchoredPosition: {x: 4.279, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8320032384175817246
 CanvasRenderer:
@@ -149,7 +163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.735849, g: 0.32280168, b: 0.32280168, a: 0.84313726}
+  m_Color: {r: 0.735849, g: 0.32280168, b: 0.32280168, a: 0.87058824}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -377,8 +391,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.25}
   m_AnchorMax: {x: 1, y: 0.75}
-  m_AnchoredPosition: {x: 2.5000014, y: 0}
-  m_SizeDelta: {x: -15, y: 0}
+  m_AnchoredPosition: {x: -4.35, y: 0}
+  m_SizeDelta: {x: -1.3, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &8101085603269249515
 PrefabInstance:
