@@ -125,6 +125,11 @@ public class SwipeDetection : MonoBehaviour
                 Debug.Log("Go left");
                 targetPosition = playerPos + new Vector3(-1.25f, 0, 0);
             }
+            // If the swipe direction wasn't to the right nor the left, do't do anything.
+            else
+            {
+                return;
+            }
 
             // Ensure the final position is exactly the target position
             player.transform.position = targetPosition;
@@ -144,7 +149,6 @@ public class SwipeDetection : MonoBehaviour
         isSwipeInCooldown = true;
 
         // Perform any visual effects or animations here
-        // For example, you can change the color of the player or show a cooldown UI element.
 
         yield return new WaitForSeconds(cooldownDuration);
 
