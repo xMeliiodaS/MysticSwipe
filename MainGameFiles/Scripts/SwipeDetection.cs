@@ -15,6 +15,11 @@ public class SwipeDetection : MonoBehaviour
 
     private InputManager inputManager;
 
+    [Tooltip("Lanes")]
+    private int currentLane;
+    private readonly int minLane = 0;
+    private readonly int maxLane = 3;
+
     private Vector2 startPos;
     private float startTime;
 
@@ -25,6 +30,7 @@ public class SwipeDetection : MonoBehaviour
     private void Awake()
     {
         inputManager = InputManager.Instance;
+        currentLane = 1;
     }
 
     // Subscribe to functions
@@ -116,14 +122,26 @@ public class SwipeDetection : MonoBehaviour
             // If swiping right
             if (Vector2.Dot(Vector2.right, direction) > directionThreshold)
             {
-                Debug.Log("Go right");
-                targetPosition = playerPos + new Vector3(1.25f, 0, 0);
+                if(currentLane < maxLane)
+                {
+                    targetPosition = playerPos + new Vector3(1f, 0, 0);
+                    currentLane++;
+
+                    // Ensure the final position is exactly the target position
+                    player.transform.position = targetPosition;
+                }
             }
             // If swiping left
             else if (Vector2.Dot(Vector2.left, direction) > directionThreshold)
             {
-                Debug.Log("Go left");
-                targetPosition = playerPos + new Vector3(-1.25f, 0, 0);
+                if(currentLane > minLane)
+                {
+                    targetPosition = playerPos + new Vector3(-1f, 0, 0);
+                    currentLane--;
+
+                    // Ensure the final position is exactly the target position
+                    player.transform.position = targetPosition;
+                }
             }
             // If the swipe direction wasn't to the right nor the left, do't do anything.
             else
@@ -131,8 +149,6 @@ public class SwipeDetection : MonoBehaviour
                 return;
             }
 
-            // Ensure the final position is exactly the target position
-            player.transform.position = targetPosition;
             // TODO: Implement swipe effects, sound effects, and more.
 
             // Swipe Effect..

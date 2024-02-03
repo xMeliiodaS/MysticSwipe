@@ -1,18 +1,13 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class TargetDetection : MonoBehaviour
 {
-    [SerializeField] private int maxHealth = 100;
-    private int currentHealth;
 
     [SerializeField] private Transform player;
+    [SerializeField] private Transform enemy;
     [SerializeField] private float detectionRange = 2f; // Adjust the range as needed
-
-
-    void Start()
-    {
-        currentHealth = maxHealth;
-    }
 
 
     void Update()
@@ -40,5 +35,4 @@ public class Enemy : MonoBehaviour
 
         return false;
     }
-
 }

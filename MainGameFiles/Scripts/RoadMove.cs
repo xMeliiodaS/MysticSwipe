@@ -7,7 +7,7 @@ public class RoadMove : MonoBehaviour
     [SerializeField] private float destroyAfterSeconds;
     private void Start()
     {
-        Application.targetFrameRate = 30;
+        //Application.targetFrameRate = 30;
         Destroy(gameObject, destroyAfterSeconds);
     }
 
