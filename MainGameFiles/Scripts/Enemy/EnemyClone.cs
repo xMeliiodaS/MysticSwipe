@@ -33,7 +33,7 @@ public class EnemyClone : MonoBehaviour
             float randomX = Random.Range(minX, maxX);
             float randomZ = Random.Range(minZ, maxZ);
 
-            Vector3 spawnPosition = new (randomX, -1, randomZ);
+            Vector3 spawnPosition = new(randomX, -1, randomZ);
             GameObject enemyClone = Instantiate(enemyPrefab[0], spawnPosition, Quaternion.Euler(0, 180f, 0));
             enemyClone.GetComponent<SphereCollider>().isTrigger = false;
 
