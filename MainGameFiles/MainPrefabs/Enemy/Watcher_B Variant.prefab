@@ -238,6 +238,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afad5107e7d01af4088c37c5bba43d9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyObject: {fileID: 1940750780953120052}
+  player: {fileID: 4480875504040092601, guid: 84195ff846ea44045ad1198060e2f505, type: 3}
+  roadRef: {fileID: 3212332231265686429, guid: f69a738fd8e7067499ea176608cec107, type: 3}
+  decreaseRate: 10
 --- !u!1 &8201638799401782210
 GameObject:
   m_ObjectHideFlags: 0
@@ -686,7 +690,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roadMove: {fileID: 3212332231265686429, guid: f69a738fd8e7067499ea176608cec107,
     type: 3}
-  enemySpeed: 1.5
+  objectSpeed: 2.5
 --- !u!114 &5535429396881927256
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -700,20 +704,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  player: {fileID: 4480875504040092601, guid: 84195ff846ea44045ad1198060e2f505, type: 3}
-  detectionRange: 2
---- !u!114 &8659789371736911483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940750780953120052}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cac70d93d51262a40933628fdb365525, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 4480875504040092601, guid: 84195ff846ea44045ad1198060e2f505, type: 3}
-  enemy: {fileID: 0}
-  detectionRange: 2

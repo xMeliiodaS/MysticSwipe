@@ -11,7 +11,6 @@ public class RoadMove : MonoBehaviour
         Destroy(gameObject, destroyAfterSeconds);
     }
 
-    // Update is called once per frame
     void Update()
     {
         transform.position += new Vector3(0, 0, roadSpeed) * Time.deltaTime;
