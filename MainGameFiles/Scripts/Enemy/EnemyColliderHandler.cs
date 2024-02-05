@@ -60,7 +60,7 @@ public class EnemyColliderHandler : MonoBehaviour
         enemyObject.transform.rotation = Quaternion.Slerp(enemyObject.transform.rotation, lookRotation, Time.deltaTime * 5f);
 
 
-        if(isEnemyMoving)
+        if (isEnemyMoving)
         {
             StartCoroutine(SlowDownOverTime());
             isEnemyMoving = false;
@@ -83,6 +83,9 @@ public class EnemyColliderHandler : MonoBehaviour
             // Move the enemy using the updated speed
             enemyObject.transform.Translate(movements.ObjectSpeed * Time.deltaTime * Vector3.forward);
 
+            // Move the enemy towards the player
+            enemyObject.transform.Translate(2.5f * Time.deltaTime * Vector3.forward);
+
             yield return null;
         }
     }
@@ -90,7 +93,7 @@ public class EnemyColliderHandler : MonoBehaviour
 
     private void Update()
     {
-        if(isPlayerDetected)
+        if (isPlayerDetected)
         {
             FaceTarget();
         }
