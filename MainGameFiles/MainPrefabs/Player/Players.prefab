@@ -136,6 +136,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7749539800684915012}
   - component: {fileID: 1649993534931428692}
+  - component: {fileID: 8117781171359214923}
   m_Layer: 6
   m_Name: AttackCollider
   m_TagString: Untagged
@@ -169,8 +170,20 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 5
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &8117781171359214923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 524738631883523084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf49cf819c686134e872ae42f2db869a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &566125050940357007
 GameObject:
   m_ObjectHideFlags: 0
@@ -366,13 +379,14 @@ GameObject:
   m_Component:
   - component: {fileID: 788999880547711737}
   - component: {fileID: 2821655278478921583}
+  - component: {fileID: 9133097681626920658}
   m_Layer: 6
   m_Name: Player1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &788999880547711737
 Transform:
   m_ObjectHideFlags: 0
@@ -414,6 +428,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &9133097681626920658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788999880547711736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6d4c1ca0f2bba348a319bec9fe10b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills:
+  - {fileID: 6810844234100877735, guid: 88dd9c4a8854b804186fda4318305ba0, type: 3}
+  - {fileID: 1210069404974878, guid: fbab27c98b168764eb295cfff1e9f61f, type: 3}
 --- !u!1 &788999880816812328
 GameObject:
   m_ObjectHideFlags: 0
@@ -424,13 +453,14 @@ GameObject:
   m_Component:
   - component: {fileID: 788999880816812329}
   - component: {fileID: 4263195563879514651}
+  - component: {fileID: 8737525361625291911}
   m_Layer: 6
   m_Name: Player2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &788999880816812329
 Transform:
   m_ObjectHideFlags: 0
@@ -469,6 +499,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8737525361625291911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788999880816812328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6d4c1ca0f2bba348a319bec9fe10b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills:
+  - {fileID: 6810844234100877735, guid: 88dd9c4a8854b804186fda4318305ba0, type: 3}
+  - {fileID: 1210069404974878, guid: fbab27c98b168764eb295cfff1e9f61f, type: 3}
 --- !u!1 &788999882133686999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1710,8 +1755,8 @@ GameObject:
   - component: {fileID: 4480875504040092601}
   - component: {fileID: 3459855828292426111}
   - component: {fileID: 3459855828292426104}
-  - component: {fileID: 3459855828292426105}
   - component: {fileID: 2837632844889495413}
+  - component: {fileID: 7439143620165183997}
   m_Layer: 6
   m_Name: Players
   m_TagString: Player
@@ -1773,20 +1818,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &3459855828292426105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3003344042989385065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 91c5b7f307156d34dab258d01390ff1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  road: {fileID: 919453400112994254, guid: f69a738fd8e7067499ea176608cec107, type: 3}
-  numberOfRoadToClone: 5
 --- !u!65 &2837632844889495413
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1800,6 +1831,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.3040438, z: 1}
   m_Center: {x: 0, y: 0.65202224, z: 0}
+--- !u!114 &7439143620165183997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3003344042989385065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6d4c1ca0f2bba348a319bec9fe10b98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills: []
 --- !u!1 &3106380455079940621
 GameObject:
   m_ObjectHideFlags: 0
@@ -2900,6 +2944,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5964479104904109695}
   - component: {fileID: 1590889262158170441}
+  - component: {fileID: 8647282350211788574}
   m_Layer: 6
   m_Name: AttackCollider
   m_TagString: Untagged
@@ -2933,8 +2978,20 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
+  m_Radius: 5
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &8647282350211788574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4776992667071565806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf49cf819c686134e872ae42f2db869a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4826366612187654219
 GameObject:
   m_ObjectHideFlags: 0
