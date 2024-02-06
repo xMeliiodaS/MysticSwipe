@@ -1,10 +1,11 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyColliderHandler : MonoBehaviour
+public class EnemyColliderAttackHandler : MonoBehaviour
 {
     [SerializeField] private GameObject enemyObject;
     [SerializeField] private Transform player;
+    [SerializeField] private Animator animator;
 
     [SerializeField] private RoadMove roadRef;
     private float roadSpeed;
@@ -19,6 +20,7 @@ public class EnemyColliderHandler : MonoBehaviour
     private void Start()
     {
         movements = enemyObject.GetComponent<EnemyMovements>();
+        animator = enemyObject.GetComponent<Animator>();
         roadSpeed = roadRef.RoadSpeed;
     }
 
@@ -41,6 +43,8 @@ public class EnemyColliderHandler : MonoBehaviour
             enemyObject.transform.rotation = Quaternion.LookRotation(directionToPlayer);
 
             isPlayerDetected = true;
+
+            animator.SetTrigger("Attack");
         }
     }
 
