@@ -379,7 +379,8 @@ GameObject:
   m_Component:
   - component: {fileID: 788999880547711737}
   - component: {fileID: 2821655278478921583}
-  - component: {fileID: 9133097681626920658}
+  - component: {fileID: 3449732897172410936}
+  - component: {fileID: 3713169480678686618}
   m_Layer: 6
   m_Name: Player1
   m_TagString: Untagged
@@ -428,7 +429,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &9133097681626920658
+--- !u!114 &3449732897172410936
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -437,12 +438,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 788999880547711736}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d4c1ca0f2bba348a319bec9fe10b98, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ae4c1076420b7b45ae94b08ccb5f20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skills:
   - {fileID: 6810844234100877735, guid: 88dd9c4a8854b804186fda4318305ba0, type: 3}
   - {fileID: 1210069404974878, guid: fbab27c98b168764eb295cfff1e9f61f, type: 3}
+--- !u!114 &3713169480678686618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788999880547711736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a47644afc880dc49944f163b2c8c873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &788999880816812328
 GameObject:
   m_ObjectHideFlags: 0
@@ -453,7 +467,8 @@ GameObject:
   m_Component:
   - component: {fileID: 788999880816812329}
   - component: {fileID: 4263195563879514651}
-  - component: {fileID: 8737525361625291911}
+  - component: {fileID: 6662690604611178286}
+  - component: {fileID: 3492947818866644166}
   m_Layer: 6
   m_Name: Player2
   m_TagString: Untagged
@@ -499,7 +514,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &8737525361625291911
+--- !u!114 &6662690604611178286
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -508,12 +523,25 @@ MonoBehaviour:
   m_GameObject: {fileID: 788999880816812328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d4c1ca0f2bba348a319bec9fe10b98, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ae4c1076420b7b45ae94b08ccb5f20b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skills:
   - {fileID: 6810844234100877735, guid: 88dd9c4a8854b804186fda4318305ba0, type: 3}
   - {fileID: 1210069404974878, guid: fbab27c98b168764eb295cfff1e9f61f, type: 3}
+--- !u!114 &3492947818866644166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 788999880816812328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a47644afc880dc49944f163b2c8c873, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
 --- !u!1 &788999882133686999
 GameObject:
   m_ObjectHideFlags: 0
@@ -1756,7 +1784,6 @@ GameObject:
   - component: {fileID: 3459855828292426111}
   - component: {fileID: 3459855828292426104}
   - component: {fileID: 2837632844889495413}
-  - component: {fileID: 7439143620165183997}
   m_Layer: 6
   m_Name: Players
   m_TagString: Player
@@ -1831,19 +1858,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 2.3040438, z: 1}
   m_Center: {x: 0, y: 0.65202224, z: 0}
---- !u!114 &7439143620165183997
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3003344042989385065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e6d4c1ca0f2bba348a319bec9fe10b98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skills: []
 --- !u!1 &3106380455079940621
 GameObject:
   m_ObjectHideFlags: 0
