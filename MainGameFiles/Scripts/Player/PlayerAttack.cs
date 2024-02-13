@@ -8,16 +8,18 @@ public class PlayerAttack : MonoBehaviour
 
 
     /// <summary>
-    /// Activates a specific skill for a certain duration and then deactivates it.
+    /// Activates a specific skill using animation's event for a certain duration then deactivates it.
     /// </summary>
     /// <param name="skillIndex">The index of the skill to activate.</param>
     /// <param name="time">The duration for which the skill remains active.</param>
     public void DoSkill(int skillIndex)
     {
-        skills[skillIndex].SetActive(true);
-        StartCoroutine(SetSkillDesactive(skillIndex, 2));
+        GameObject skill = skills[skillIndex];
 
-        skills[skillIndex].GetComponent<SphereCollider>().enabled = true;
+        skill.SetActive(true);
+        skill.GetComponent<SphereCollider>().enabled = true;
+
+        StartCoroutine(SetSkillDesactive(skillIndex, 1f));
     }
 
 
@@ -27,7 +29,7 @@ public class PlayerAttack : MonoBehaviour
     /// <param name="skillIndex">The index of the skill to deactivate.</param>
     /// <param name="time">The duration before the skill is deactivated.</param>
     /// <returns></returns>
-    private IEnumerator SetSkillDesactive(int skillIndex, int time)
+    private IEnumerator SetSkillDesactive(int skillIndex, float time)
     {
         yield return new WaitForSeconds(time);
         skills[skillIndex].SetActive(false);
