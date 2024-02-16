@@ -129,6 +129,9 @@ public class SwipeDetection : MonoBehaviour
 
                     // Ensure the final position is exactly the target position
                     player.transform.position = targetPosition;
+
+                    Vector3 newPosition = playerCamera.transform.position + new Vector3(1f, 0f, 0f);
+                    playerCamera.transform.position = newPosition;
                 }
             }
             // If swiping left
@@ -141,6 +144,9 @@ public class SwipeDetection : MonoBehaviour
 
                     // Ensure the final position is exactly the target position
                     player.transform.position = targetPosition;
+
+                    Vector3 newPosition = playerCamera.transform.position + new Vector3(-1f, 0f, 0f);
+                    playerCamera.transform.position = newPosition;
                 }
             }
             // If the swipe direction wasn't to the right nor the left, do't do anything.

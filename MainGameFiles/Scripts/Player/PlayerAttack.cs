@@ -19,7 +19,19 @@ public class PlayerAttack : MonoBehaviour
         skill.SetActive(true);
         skill.GetComponent<SphereCollider>().enabled = true;
 
-        StartCoroutine(SetSkillDesactive(skillIndex, 1f));
+        StartCoroutine(SetSkillDesactive(skillIndex, 1.3f));
+    }
+
+
+    /// <summary>
+    /// Deactivates a skill's collider.
+    /// </summary>
+    /// <param name="skillIndex">The index of the skill to deactivate.</param>
+    /// <param name="time">The duration before the skill is deactivated.</param>
+    /// <returns></returns>
+    public void DisableSkillCollider(int skillIndex)
+    {
+        skills[skillIndex].GetComponent<SphereCollider>().enabled = false;
     }
 
 
@@ -33,7 +45,5 @@ public class PlayerAttack : MonoBehaviour
     {
         yield return new WaitForSeconds(time);
         skills[skillIndex].SetActive(false);
-
-        skills[skillIndex].GetComponent<SphereCollider>().enabled = false;
     }
 }
